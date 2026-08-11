@@ -9,12 +9,13 @@ let todos = [
     new todoItem_1.TodoItem(4, "Call Joe", true),
 ];
 let collection = new todoCollection_1.TodoCollection("Moi", todos);
-console.clear();
-console.log(`${collection.username}'s Todo List`);
 let newId = collection.addTodo("Go for run");
 // let todoItem: TodoItem|null = collection.getTodoById(newId);
+console.clear();
+console.log(`${collection.username}'s Todo List (${collection.getItemCounts().incomplete} items to do)`);
 // console.log(JSON.stringify(todoItem));
 // console.log(`Item #${todoItem?.id} is "${todoItem?.task}".`);
 // todoItem?.printDetails();
+// collection.removeComplete();
 collection.getTodoItems(true).forEach(item => item.printDetails());
 //# sourceMappingURL=index.js.map

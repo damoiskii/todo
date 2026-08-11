@@ -36,6 +36,20 @@ class TodoCollection {
     getTodoItems(includeComplete) {
         return [...this.itemMap.values()].filter(item => includeComplete || !item.complete);
     }
+    // Remove all completed items from the list
+    removeComplete() {
+        this.itemMap.forEach(item => {
+            if (item.complete)
+                this.itemMap.delete(item.id);
+        });
+    }
+    // Get counts of total and incomplete items
+    getItemCounts() {
+        return {
+            total: this.itemMap.size,
+            incomplete: this.getTodoItems(false).length
+        };
+    }
 }
 exports.TodoCollection = TodoCollection;
 //# sourceMappingURL=todoCollection.js.map
