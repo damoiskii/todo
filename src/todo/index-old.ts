@@ -1,5 +1,5 @@
-import { TodoItem } from './todoItem';
-import { TodoCollection } from './todoCollection';
+import { TodoItem } from '../todo/todoItem';
+import { TodoCollection } from '../todo/todoCollection';
 import { rawlist, input, checkbox, select, Separator } from '@inquirer/prompts';
 
 let todos: TodoItem[] = [
