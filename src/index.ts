@@ -1,6 +1,7 @@
 import { TodoItem } from './todoItem';
 import { TodoCollection } from './todoCollection';
 import { rawlist, input, checkbox, select, Separator } from '@inquirer/prompts';
+import { JsonTodoCollection } from './jsonTodoCollection';
 
 let todos: TodoItem[] = [
     new TodoItem(1, "Buy Flowers"),
@@ -9,7 +10,7 @@ let todos: TodoItem[] = [
     new TodoItem(4, "Call Joe", true),
 ];
 
-let collection: TodoCollection = new TodoCollection("Moi", todos);
+let collection: TodoCollection = new JsonTodoCollection("Moi", todos);
 let showCompleted: boolean = true;
 
 function displayTodoList(): void{
@@ -90,7 +91,12 @@ async function promptUser(): Promise<void>{
                 await promptComplete();
             } else {
                 console.log("No incomplete tasks to mark as complete.");
-                promptUser();
+
+                setTimeout(() => {
+                    promptUser();
+                }, 2000);
+
+                // promptUser();
             }
             break;
 

@@ -7,7 +7,7 @@ export declare class TodoCollection {
     username: string;
     todoItems: TodoItem[];
     private nextId;
-    private itemMap;
+    protected itemMap: Map<number, TodoItem>;
     constructor(username: string, todoItems?: TodoItem[]);
     addTodo(task: string): number;
     getTodoById(id: number): TodoItem | null;
